@@ -24,13 +24,13 @@ void UART_ini_RX()
 void RX()
 {
     while((UART1_FR_R & (1<<4)) != 0);
-          if((UART1_DR_R & 0xFF) == 0x01)
+          if((UART1_DR_R & 0xFF) == ASCII())
           {
 
            GPIO_PORTF_DATA_R = 0x0E;
-           delay(1);
+           Delay();
+           GPIO_PORTF_DATA_R &= ~0x0E;
           }
-          else if ((UART1_DR_R & 0xFF) == 0x00)
-              GPIO_PORTF_DATA_R &= ~0x0E;
 }
+
 
