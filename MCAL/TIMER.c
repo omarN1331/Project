@@ -5,8 +5,10 @@
 
 
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\TIVA.h"
-
 #define DELAY_FOR_ONE_SECOND                          (160000000 * 1) - 1
+#define DELAY_VALUE                         9000000  // found this delay code on a website and used it down below in the code
+unsigned long j;
+
 
 
 void delay(int n)
@@ -24,3 +26,6 @@ void delay(int n)
                            NVIC_ST_CTRL_R = 0;             /* Disabling SysTick Timer */
 }
 
+void Delay(void){
+    for (j=0; j<DELAY_VALUE ; j++);
+}
