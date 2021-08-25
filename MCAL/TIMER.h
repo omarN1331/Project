@@ -7,6 +7,7 @@
 #ifndef MCAL_TIMER_H_
 #define MCAL_TIMER_H_
 void delay(int n);
+void Delay(void);
 
 
 
