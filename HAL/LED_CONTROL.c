@@ -26,13 +26,14 @@ void LedInit()
      GPIO_PORTF_DEN_R = 0X0E;
 }
 
-void ASCII()
+int ASCII()
 {
     char s[] ="ON LED";
         int x,i;
         for ( i = 1; i <sizeof(s); i++)
         {
              x=s[i-1];
-            printf("%d ",x);
         }
+        return x;
 }
+
