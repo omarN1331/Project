@@ -8,8 +8,6 @@
 #define MCAL_UART_H_
 
 void UART_ini_RX();
-void UART_ini_TX();
 void RX();
-void TX();
 
 #endif /* MCAL_UART_H_*/
