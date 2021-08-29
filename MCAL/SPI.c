@@ -13,11 +13,11 @@ void INITIALIZE_SPI_MASTER()
 {
     SYSCTL_RCGCSSI_R |= 0x1; // Enable and provide a clock to SPI0
                     GPIO_CLOCK |= 0x21; // Enable and provide a clock to GPIO PortA & portf
-                    AFSEL->A |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
-                                   PCTL->A |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
-                                   DEN->A |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
-                                   DIR->A |= 0x8; // Set PA3 as output
-                                   DATA->A |= 0x8;
+                    AFSEL_A |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
+                                   PCTL_A |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
+                                   DEN_A |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
+                                   DIR_A |= 0x8; // Set PA3 as output
+                                   DATA_A |= 0x8;
                                    LOCK_F   = 0X4C4F434B;
                                    COMMIT_F =0X01;
                                    ANALOG_S_F = 0;
