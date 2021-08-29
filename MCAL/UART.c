@@ -4,11 +4,12 @@
 #include<stdio.h>
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\MCAL\TIMER.h"
 #include "C:\Users\ayaser\CLionProjects\ProJecT\GP.h"
+#include "C:\Users\amostafa\workspace_v10\FINAL PROJECT\mylib.h"
 
 void UART_ini_RX()
 {
     SYSCTL_RCGCUART_R |= 0x02;
-    SYSCTL_RCGCGPIO_R |= 0x02;
+    GPIO_CLOCK |= 0x02;
 
     UART1_CTL_R &= ~0x01;
     UART1_IBRD_R = 104;
@@ -28,9 +29,9 @@ void RX()
           if((UART1_DR_R & 0xFF) == ASCII())
           {
 
-           GPIO_PORTF_DATA_R = 0x0E;
+           DATA_F = 0x0E;
            Delay();
-           GPIO_PORTF_DATA_R &= ~0x0E;
+           DATA_F &= ~0x0E;
           }
 }
 
