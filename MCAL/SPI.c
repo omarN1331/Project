@@ -7,23 +7,24 @@
 
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\TIVA.h"
 #include "C:\Users\onasser\Desktop\PORTAheader.h"
+#include "C:\Users\amostafa\workspace_v10\FINAL PROJECT\mylib.h"
 
 void INITIALIZE_SPI_MASTER()
 {
     SYSCTL_RCGCSSI_R |= 0x1; // Enable and provide a clock to SPI0
-                    SYSCTL_RCGCGPIO_R |= 0x21; // Enable and provide a clock to GPIO PortA & portf
+                    GPIO_CLOCK |= 0x21; // Enable and provide a clock to GPIO PortA & portf
                     AFSEL->A |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
                                    PCTL->A |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
                                    DEN->A |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
                                    DIR->A |= 0x8; // Set PA3 as output
                                    DATA->A |= 0x8;
-                                   GPIO_PORTF_LOCK_R = 0X4C4F434B;
-                                   GPIO_PORTF_CR_R=0X01;
-                                   GPIO_PORTF_AMSEL_R = 0;
-                                   GPIO_PORTF_PCTL_R &= 0xFFFFFFF0;
-                                   GPIO_PORTF_PUR_R=0x10;
-                                   GPIO_PORTF_DEN_R |= 0X1E;// Make slave select line high when idle
-                                   GPIO_PORTF_DIR_R |= 0X0E;
+                                   LOCK_F   = 0X4C4F434B;
+                                   COMMIT_F =0X01;
+                                   ANALOG_S_F = 0;
+                                   PORT_CONTROL_F &= 0xFFFFFFF0;
+                                   PULL_UP_F=0x10;
+                                   DIGITAL_E_F |= 0X1E;// Make slave select line high when idle
+                                   DIRECTION_F |= 0X0E;
                                    SSI0_CR1_R |= 0x0; // Disable SPI and configure it as a master
                                    SSI0_CC_R |= 0x0; // Select the SPI Baud Clock Source as system clock
                                    SSI0_CPSR_R |= 0x10; // Set the clock frequency to 1 MHz
