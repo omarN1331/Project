@@ -34,9 +34,9 @@ void INITIALIZE_SPI_MASTER()
 
 void SPI_Transmit(char c)       //for master
 {
-    GPIO_PORTA_DATA_R &= ~0x8; // Select the slave by making active-low slave select line low
+    DATA_A &= ~0x8; // Select the slave by making active-low slave select line low
     while((SSI0_SR_R & 0x2) == 0x00); // wait until transmit FIFO is not full
     SSI0_DR_R = c; // send the data
     while((SSI0_SR_R & 0x10) == 0x10); //  wait until busy bit becomes 0
-    GPIO_PORTA_DATA_R |= 0x8; // Deselect the slave
+    DATA_A |= 0x8; // Deselect the slave
 }
