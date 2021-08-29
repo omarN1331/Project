@@ -6,16 +6,17 @@
 
 
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\TIVA.h"
+#include "C:\Users\onasser\Desktop\PORTAheader.h"
 
 void INITIALIZE_SPI_MASTER()
 {
     SYSCTL_RCGCSSI_R |= 0x1; // Enable and provide a clock to SPI0
                     SYSCTL_RCGCGPIO_R |= 0x21; // Enable and provide a clock to GPIO PortA & portf
-                    GPIO_PORTA_AFSEL_R |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
-                                   GPIO_PORTA_PCTL_R |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
-                                   GPIO_PORTA_DEN_R |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
-                                   GPIO_PORTA_DIR_R |= 0x8; // Set PA3 as output
-                                   GPIO_PORTA_DATA_R |= 0x8;
+                    AFSEL_A |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
+                                   PCTL_A |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
+                                   DEN_A |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
+                                   DIR_A |= 0x8; // Set PA3 as output
+                                   DATA_A |= 0x8;
                                    GPIO_PORTF_LOCK_R = 0X4C4F434B;
                                    GPIO_PORTF_CR_R=0X01;
                                    GPIO_PORTF_AMSEL_R = 0;
