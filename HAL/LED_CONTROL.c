@@ -8,22 +8,22 @@
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\MCAL\TIMER.h"
 #include"C:\Users\amostafa\workspace_v10\FINAL PROJECT\TIVA.h"
 #include<stdio.h>
+#include "C:\Users\amostafa\workspace_v10\FINAL PROJECT\mylib.h"
 
 void SW_ini()
 {
-    SYSCTL_RCGCGPIO_R |= 0x20;
-    GPIO_PORTF_LOCK_R = 0X4C4F434B;
-    GPIO_PORTF_CR_R = 0x0F;
-    GPIO_PORTF_PUR_R = 0X01;
-    GPIO_PORTF_DIR_R |= 0X0E;
-    GPIO_PORTF_DEN_R |= 0x1F;
-}
+    GPIO_CLOCK |= 0x20;
+    LOCK_F = 0X4C4F434B;
+    COMMIT_F  = 0x0F;
+    PULL_UP_F = 0X01;
+    DIRECTION_F |= 0X0E;
+    DIGITAL_E_F |= 0x1F;
 
 void LedInit()
 {
-     SYSCTL_RCGCGPIO_R |= 0x20;
-     GPIO_PORTF_DIR_R = 0x0E;
-     GPIO_PORTF_DEN_R = 0X0E;
+     GPIO_CLOCK |= 0x20;
+     DIRECTION_F = 0x0E;
+     DIGITAL_E_F = 0X0E;
 }
 
 int ASCII()
